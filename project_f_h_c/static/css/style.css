@@ -1,0 +1,18 @@
+body {
+    /* background-color: red !important; */
+}
+
+.navbarlayouts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar {
+    min-width: 70%;
+    padding: 2rem;
+}
+
+.navbar-nav {
+    min-width: 70%;
+}
