@@ -3,8 +3,8 @@ from flask import render_template
 
 
 
+# @app.route('/')
 @app.route('/')
-@app.route('/accueil')
 def accueilpage():
     return render_template('accueil.html', title="Accueil")
 
@@ -27,3 +27,18 @@ def donationpage():
 @app.route('/membres')
 def membrespage():
     return render_template('membres.html', title="Membres")
+
+@app.route('/fetes')
+def fetespage():
+    return render_template('./activitesDetail/fetes.html', title="Activités")
+@app.route('/piquenique')
+def piqueniquepage():
+    return render_template('./activitesDetail/piquenique.html', title="Activités")
+
+@app.route('/projets')
+def projetpage():
+    return render_template('./activitesDetail/projets.html', title="Activités")
+
+@app.route('/sports')
+def sportspage():
+    return render_template('./activitesDetail/sports.html', title="Activités")

@@ -9,13 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='../static/css/style.css')}}">
+    <!-- Navbar component pour chaque page html -->
+    <div class="navbarlayouts bg-light">
+        <nav class="navbar navbar-expand-lg">
 
-    <div class="navbarlayouts">
-        <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{url_for('accueilpage')}}"></a>
-                <img src="{{url_for('static', filename='../static/image/logo_harmonie.png')}}" width="60%"
-                    alt="Logo harmonie"></img>
+                <a class="navbar-brand" href="{{url_for('accueilpage')}}">
+                    <img class="logoharmonie"
+                        src="{{url_for('static', filename='../static/image/logo_harmonie_test.png')}}" width="50%"
+                        alt="Logo harmonie">
+                    </img>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -31,23 +34,27 @@
                             <a class="nav-link dropdown-toggle" href="{{url_for('activitespage')}}"
                                 id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Activités
+                                Activites
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Projets</a></li>
-                                <li><a class="dropdown-item" href="#">Pique-nique</a></li>
-                                <li><a class="dropdown-item" href="#">Sports</a></li>
-                                <li><a class="dropdown-item" href="#">Fêtes</a></li>
-                                <li><a class="dropdown-item" href="#">Sports</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('fetespage')}}"> Fêtes</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('piqueniquepage')}}">Pique-nique</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('projetpage')}}">Projets</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('sportspage')}}">Sports</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="{{url_for('courspage')}}">Cours</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="{{url_for('donationpage')}}">Donation</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('membrespage')}}">Membres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('contactpage')}}">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>

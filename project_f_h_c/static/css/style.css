@@ -8,11 +8,23 @@ body {
     justify-content: center;
 }
 
+/* 
 .navbar {
     min-width: 70%;
     padding: 2rem;
+} */
+
+.navbar-nav li {
+    margin: 0 0.5rem;
 }
 
-.navbar-nav {
-    min-width: 70%;
+.navbar-brand {
+    display: flex;
+    /* justify-content: center; */
+    /* width: 100%; */
+    min-width: min-content;
+}
+
+.logoharmonie {
+    cursor: pointer;
 }
