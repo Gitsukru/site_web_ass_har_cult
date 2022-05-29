@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -25,23 +26,13 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse justify-content-center">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{url_for('accueilpage')}}">Accueil</a>
+                            <a class="nav-link" aria-current="page" href="{{url_for('accueilpage')}}">Accueil</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{url_for('activitespage')}}"
-                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Activites
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{url_for('fetespage')}}"> Fêtes</a></li>
-                                <li><a class="dropdown-item" href="{{url_for('piqueniquepage')}}">Pique-nique</a></li>
-                                <li><a class="dropdown-item" href="{{url_for('projetpage')}}">Projets</a></li>
-                                <li><a class="dropdown-item" href="{{url_for('sportspage')}}">Sports</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('activitespage')}}">Activites</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url_for('courspage')}}">Cours</a>
@@ -62,20 +53,35 @@
     </div>
 </head>
 
-
 <body>
 
     {% block content %}
 
+
     {% endblock content %}
-
-
+    <!-- FOOTER -->
+    <footer class="footercontainer container bg-light">
+        <div class="floatend">
+            <h4>Association Harmonie Culturelle</h4>
+            <p>Rue du simplon 3</p>
+            <p>1020 Renens</p>
+            <p>harmonie.culturelle@gmail.com</p>
+        </div>
+        <div class="floatend">
+            <p>© 2022–2022 Sükrü</p>
+            <p><a href="#">Privacy</a></p>
+            <p><a href="#">Terms</a></p>
+            <p><a href="#">Back to top</a></p>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='../static/main.js')}}"></script>
+    <!-- <script defer src="../static/main.js"></script> -->
 </body>
 
 </html>

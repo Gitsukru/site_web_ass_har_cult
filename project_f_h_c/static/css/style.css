@@ -1,5 +1,17 @@
 body {
     /* background-color: red !important; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.background-img {
+    height: 84vh;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+    position: absolute;
 }
 
 .navbarlayouts {
@@ -18,6 +30,12 @@ body {
     margin: 0 0.5rem;
 }
 
+.navbar-nav li a:is(:link, :active, :visited).active {
+    color: blue;
+    background-color: wheat;
+    border-bottom: 0.01rem solid blue;
+}
+
 .navbar-brand {
     display: flex;
     /* justify-content: center; */
@@ -27,4 +45,48 @@ body {
 
 .logoharmonie {
     cursor: pointer;
+}
+
+.carousel {
+    margin: 3rem 0;
+}
+
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: cadetblue;
+    border-radius: 25px;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+}
+
+.footercontainer {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    flex: 1;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    padding: 1rem;
+    height: 20vh;
+}
+
+.floatend {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+
+}
+
+.active:active {
+    color: blue;
 }
