@@ -28,17 +28,10 @@ def donationpage():
 def membrespage():
     return render_template('membres.html', title="Membres")
 
-@app.route('/fetes')
-def fetespage():
-    return render_template('./activitesDetail/fetes.html', title="Activités")
-@app.route('/piquenique')
-def piqueniquepage():
-    return render_template('./activitesDetail/piquenique.html', title="Activités")
+@app.route('/login')
+def loginpage():
+    return render_template('login.html', title="Connexion")
 
-@app.route('/projets')
-def projetpage():
-    return render_template('./activitesDetail/projets.html', title="Activités")
-
-@app.route('/sports')
-def sportspage():
-    return render_template('./activitesDetail/sports.html', title="Activités")
+@app.route('/register')
+def registerpage():
+    return render_template('register.html', title="S'inscrire")

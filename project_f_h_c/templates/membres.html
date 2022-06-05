@@ -1,8 +1,199 @@
 {% extends 'layouts.html' %}
 
-{% block content %}
+{% block content_Membres %}
 
-<h1>Membres page</h1>
+<div class="container container-membres">
+    <div class="row row-cols-12 container-membres-content ">
+        <div class="col-md-3">
+            <nav id="navbar-example3" class="navbar flex-column align-items-stretch p-3 navbar-fixed-left">
+                <h5>L'adhésion</h5>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#item-1">Article 3</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-1-1">article 3-1</a>
+                        <a class="nav-link ms-3 my-1" href="#item-1-2">article 3-2</a>
+                    </nav>
+                    <h5>Membres</h5>
+                    <a class="nav-link" href="#item-2">Article 4</a>
+                    <nav class="nav nav-pills flex-column">
+                        <h6>Membres actifs</h6>
+                        <a class="nav-link ms-3 my-1" href="#item-2-1">Article 4-1</a>
+                        <a class="nav-link ms-3 my-1" href="#item-2-2">Article 4-2</a>
+                        <h6>Membres passifs</h6>
+                        <a class="nav-link ms-3 my-1" href="#item-2-3">Article 4-3</a>
+                    </nav>
+                    <h5>Fin de l'adhésion</h5>
+                    <a class="nav-link" href="#item-3">Article 5</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-3-1">Article 5-1</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-2">Article 5-2</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-3">Article 5-3</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-4">Article 5-4</a>
+                    </nav>
+                </nav>
+            </nav>
+        </div>
+        <div class="col-md-7 mt-3 scroll-seit">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" tabindex="0">
+                <div id="item-1">
+                    <h5>L'adhésion</h5>
+                    <h6>Article 3</h6>
+                </div>
+                <div id="item-1-1">
+                    <p>3.1 - Peuvent devenir membres de l'association les personnes physiques et morales qui se
+                        sentent attachées aux valeurs fondamentales de la Constitution suisse et qui reconnaissent et
+                        sont prêtes à promouvoir les buts et objectifs de l'association.</p>
+                </div>
+                <div class="item-scroll" id="item-1-2">
+                    <p>3.2 - L'admission est faite par le Conseil après qu'une déclaration écrite d'adhésion ait
+                        été soumise. Elle peut être refusée sans motif.</p>
+                </div>
+                <div id="item-2">
+                    <h5 class="mrgtp">Membres </h5>
+                    <h6>Article 4</h6>
+                    <p>L'association se compose de membres actifs et passifs</p>
+                </div>
+                <div id="item-2-1">
+                    <h6>Membres actifs</h6>
+                    <p>Article 4.1 - Les personnes physiques qui participent à la réalisation de l'objet de
+                        l'association par une
+                        coopération personnelle ou qui savent l'utiliser peuvent devenir membres actifs.</p>
+                </div>
+                <div id="item-2-2">
+                    <p>Article 4.2 - En payant la cotisation, le membre actif déclare son accord avec les statuts et les
+                        manifestations de l'association.</p>
+                </div>
+                <div id="item-2-3">
+                    <h6>Membres passifs</h6>
+                    <p>Article 4.3 - Les personnes physiques ou morales qui participent à la poursuite de l'objet de
+                        l'association
+                        par des contributions financières peuvent être acceptées comme membres passifs.
+                    </p>
+                </div>
+                <div id="item-3">
+                    <h5 class="mrgtp">Fin de l'adhésion </h5>
+                    <h6>Article 5</h6>
+                    <p>- La qualité de membre expire par la démission, l'exclusion ou le décès ou la dissolution de la
+                        personne morale.</p>
+                </div>
+                <div id="item-3-1">
+                    <p>Article 5.1 - Le retrait doit être déclaré par écrit. Il ne peut être effectué qu'à la fin d'une
+                        année
+                        civile, moyennant un préavis de 3 mois. Le membre démissionnaire reste tenu de payer les
+                        cotisations pour l'année en cours de l'association.</p>
+                </div>
+                <div id="item-3-2">
+                    <p>Article 5.2 - Les membres qui ont négligé leurs devoirs, porté préjudice à l'association ou violé
+                        de manière
+                        significative les intérêts de l'association par leur conduite doivent être réprimandés par le
+                        conseil d'administration. Si ce rappel reste sans effet, le comité exécutif peut ordonner
+                        l'exclusion et doit immédiatement en informer par écrit le membre exclu. Les membres exclus
+                        peuvent faire appel à la prochaine Assemblée générale, dont la décision est définitive.
+                    </p>
+                </div>
+                <div id="item-3-3">
+                    <p>Article 5.3 - L'expiration de l'adhésion entraîne la perte de tous les droits d'adhésion.</p>
+                </div>
+                <div id="item-3-4">
+                    <p>Article 5.3 - L'expiration de l'adhésion entraîne la perte de tous les droits d'adhésion.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 button-membres">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary " data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+                Devenir membre
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Je veux devenir membre de l'association
+                                Harmonie Culturelle</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-5">
+                            <form class="row g-4 form-area-modal">
+                                <!-- <div class="row"> -->
+                                <!-- <div class="col-md-4">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Genre</option>
+                                        <option value="1">Madame</option>
+                                        <option value="2">Monsieur</option>
+                                    </select>
+                                </div> -->
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Prénom" aria-label="Prénom">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Nom" aria-label="Nom">
+                                </div>
+                                <!-- </div> -->
+
+
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="email@cool.com"
+                                        id="inputEmail4">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Téléphone" id="inputPassword4">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Adresse" id="inputAddress"
+                                        placeholder="1234 Main St">
+                                </div>
+                                <div class="col-md-2 canton-ville-cp">
+                                    <input type="number" class="form-control" placeholder="CP" id="inputZip">
+                                </div>
+                                <div class="col-md-6 canton-ville-cp">
+                                    <input class="form-control mt-" type="text" class="form-control" placeholder="Ville"
+                                        id="inputCity">
+                                </div>
+                                <div class="col-md-4 canton-ville-cp">
+                                    <select id="inputState" class="form-select">
+                                        <option selected>Vaud</option>
+                                        <option>Tessin </option>
+                                        <option>Neuchâtel</option>
+                                        <option>Genève</option>
+                                        <option>Valais</option>
+                                        <option>Fribourg</option>
+                                        <option>Jura</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" placeholder="Télécharger Identité"
+                                        id="inputGroupFile02">
+                                </div>
+
+                                <div class="col-md-6 m-l-5 form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label form-label-checkbox;" for="gridCheck">
+                                        Lu et accepte les conditions
+                                    </label>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="col-4 footer-button-modal">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Annuler</button>
+                                    </div>
+                                    <div class="col-4 footer-button-modal">
+                                        <button type="button" class="btn btn-primary">Envoyez</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="{{url_for('static', filename='../static/main.js')}}"></script>
-{% endblock %}
+{% endblock content_Membres %}
