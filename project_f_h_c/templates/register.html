@@ -1,8 +1,143 @@
-{% extends 'layouts.html' %}
-
-{% block content_Register %}
-
-<h1>Register page</h1>
-
-<script src="{{url_for('static', filename='../static/main.js')}}"></script>
-{% endblock content_Register %}
+{%extends 'layouts.html'%}
+<!-- dddd -->
+{%block content_Register%}
+<div class="container w-50">
+  <h3>S'inscrire</h3>
+  <!-- <div class="modal-fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
+  <!-- <div class="modal-dialog modal-lg"> -->
+  <!-- <div class="modal-content"> -->
+  <div class="modal-header">
+    <h5 class="modal-title" id="staticBackdropLabel">
+      Je veux devenir membre de l'association Harmonie Culturelle
+    </h5>
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+  </div>
+  <!-- <div class="modal-body p-5"> -->
+  <form method="POST" action="" class="row g-4 form-area-modal">
+    {{form.hidden_tag()}}
+    <fieldset class="form-group row g-3">
+      <div class="col-md-4">
+        {{form.gender(class="form-control form-control-md",
+        placeholder="Lieu")}}
+      </div>
+      <div class="form-group col-md-4">
+        {%if form.user_first_name.errors%}
+        {{form.user_first_name(class="form-control form-control-md is-invalid",
+        placeholder="Prénom")}} {%for error in form.user_first_name.errors%}
+        <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.user_first_name(class="form-control form-control-md",
+        placeholder="Prénom")}} {%endif%}
+      </div>
+      <div class="form-group col-md-4">
+        {%if form.user_last_name.errors%}
+        {{form.user_last_name(class="form-control form-control-md is-invalid",
+        placeholder="Nom")}} {%for error in form.user_last_name.errors%}
+        <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.user_last_name(class="form-control form-control-md",
+        placeholder="Nom")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6">
+        {%if form.email.errors%} {{form.email(class="form-control
+        form-control-md is-invalid", placeholder="email'@'cool.com")}} {%for
+        error in form.email.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.email(class="form-control form-control-md",
+        placeholder="email'@'cool.ch")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6">
+        <!-- <input type="tel" id="phone_number" placeholder="test phone number"
+                    pattern="[+]{1}[0-9]{2}''[0-9]{2}''[0-9]{3}''[0-9]{2}''[0-9]{2}"> -->
+        {%if form.phone_number.errors%} {{form.phone_number(class="form-control
+        form-control-md is-invalid", placeholder="Numéro de Téléphone")}} {%for
+        error in form.phone_number.errors%}
+        <span>{{error}}</span>
+        {%endfor%} {%else%} {{form.phone_number(class="form-control
+        form-control-md", placeholder="Numéro de Téléphone")}} {%endif%}
+      </div>
+      <div class="form-group col-12">
+        {%if form.adresse.errors%} {{form.adresse(class="form-control
+        form-control-md is-invalid", placeholder="Adresse et numéro")}} {%for
+        error in form.adresse.errors%} <span>{{error}}</span> {%endfor%}
+        {%else%} {{form.adresse(class="form-control form-control-md",
+        placeholder="Adresse et numéro")}} {%endif%}
+      </div>
+      <div class="form-group col-md-3 canton-ville-cp">
+        {%if form.zip_code.errors%} {{form.zip_code(class="form-control
+        form-control-md is-invalid", placeholder="CP")}} {%for error in
+        form.zip_code.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.zip_code(class="form-control form-control-md",
+        placeholder="CP")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6 canton-ville-cp">
+        {%if form.ville.errors%} {{form.ville(class="form-control
+        form-control-md is-invalid", placeholder="Lieu")}} {%for error in
+        form.ville.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.ville(class="form-control form-control-md", placeholder="Lieu")}}
+        {%endif%}
+      </div>
+      <div class="form-group col-md-3 canton-ville-cp">
+        {%if form.canton.errors%} {{form.canton(class="form-control
+        form-control-md is-invalid", placeholder="Canton")}} {%for error in
+        form.canton.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.canton(class="form-control form-control-md",
+        placeholder="Canton")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6 mb-3 password">
+        {%if form.password.errors%} {{form.password(class="form-control
+        form-control-md is-invalid", placeholder="password")}} {%for error in
+        form.password.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.password(class="form-control form-control-md password-input",
+        placeholder="Mot de passe")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6 mb-3 confirme-password">
+        {%if form.confirm_password.errors%}
+        {{form.confirm_password(class="form-control form-control-md is-invalid",
+        placeholder="password")}} {%for error in form.confirm_password.errors%}
+        <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.confirm_password(class="form-control form-control-md
+        confirme-password-input", placeholder="Répéter le mot de passe")}}
+        {%endif%}
+      </div>
+      <div
+        class="form-group col-md-12 input-group input-grp d-flex flex-column"
+      >
+        <label for="formFile" class="form-label"
+          >Téléchargez Document d'identité</label
+        >
+        {%if form.file_id.errors%} {{form.file_id(class="form-control
+        form-control-md is-invalid", placeholder="Document d'identité")}} {%for
+        error in form.confirm_password.errors%}
+        <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.file_id(class="form-control form-control-md",
+        placeholder="Document d'identité")}} {%endif%}
+      </div>
+      <div class="form-group col-md-6 form-check">
+        {%if form.Read_and_accept.errors%}
+        {{form.Read_and_accept(class="form-control form-control-md
+        is-invalid")}} {%for error in form.Read_and_accept.errors%}
+        <span>{{error}}</span> {%endfor%} {%else%}
+        {{form.Read_and_accept(class="form-check-input form-control-md")}}
+        {%endif%}
+        <label class="form-check-label form-label-checkbox;" for="gridCheck">
+          Lu et accepté les conditions
+          <a class="condition-membre" href="{{url_for('membrespage')}}">
+            ( Condition membres )
+          </a>
+        </label>
+      </div>
+      <div class="modal-footer">
+        <!-- <div class="form-group col-4 footer-button-modal">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                </div> -->
+        <div class="form-group col-4 footer-button-modal">
+          <!-- <a href="{{url_for('accueilpage')}}"> -->
+          {{form.submit(class="form-control btn btn-primary form-control-md",
+          placeholder="Envoyer")}}
+          <!-- </a> -->
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<script src="{{url_for('static',filename='../static/main.js')}}"></script>
+{%endblock content_Register%}
