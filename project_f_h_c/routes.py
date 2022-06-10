@@ -53,10 +53,13 @@ def registerpage():
 @app.route('/login', methods=['POST', 'GET'])
 def loginpage():
     form = LoginForm()
+    print("form !!")
     if form.validate_on_submit():
-        if form.email.data == 'aaa@sss.com' and form.password.data == '123456':
+        print("sous submit")
+        if form.email.data == 'aaa@gmail.com' and form.password.data == '123456':
             flash(
                 f'Connexion avec succès pour{form.email.data}', category='success')
+            print("sous flasch")
             return redirect(url_for('accountpage'))
         else:
             flash(

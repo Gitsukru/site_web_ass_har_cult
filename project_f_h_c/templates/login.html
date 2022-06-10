@@ -6,14 +6,14 @@
   <div class="row">
     <div class="col">
       <main class="form-signin w-100 m-auto">
-        <form class="form-login">
+        <form class="form-login" method="POST" action="">
           <img
             class="mb-4"
             src="../static/image/logo_harmonie.svg"
             alt="Logo Harmonie C."
             width="110"
           />
-          <h3 class="h3 mb-3 fw-normal">Please sign in</h3>
+          <h3 class="h3 mb-3 fw-normal">Veuillez vous connecter</h3>
           <div class="col-md mb-3">
             <!-- <input
               type="email"
@@ -21,10 +21,17 @@
               placeholder="email@cool.com"
               id="inputEmail4"
             /> -->
-            {%if form.email.errors%} {{form.email(class="form-control
-            form-control-md is-invalid", placeholder="email'@'cool.com")}} {%for
-            error in form.email.errors%} <span>{{error}}</span> {%endfor%}
-            {%else%} {{form.email(class="form-control form-control-md",
+            {%if form.email.errors%}
+            <!-- hkj -->
+            {{form.email(class="form-control form-control-md is-invalid",
+            placeholder="email'@'cool.com")}}
+            <!-- hkh -->
+            {%for error in form.email.errors%}
+            <span>{{error}}</span>
+            <!-- hhh -->
+            {%endfor%} {%else%}
+            <!-- hhhh -->
+            {{form.email(class="form-control form-control-md",
             placeholder="email'@'cool.ch")}} {%endif%}
           </div>
           <div class="col-md mb-3">

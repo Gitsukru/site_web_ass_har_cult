@@ -37,11 +37,11 @@ class RegistrationForm(FlaskForm):
         validators=[DataRequired()])
 
     password = PasswordField(validators=[DataRequired(), Length(
-        min=6, max=35)])
+        min=6, max=35), EqualTo('confirm_password')])
 
     confirm_password = PasswordField(
         validators=[DataRequired(), Length(
-            min=6, max=35), EqualTo('confirm_password', 'password')])
+            min=6, max=35), EqualTo('password')])
 
     submit = SubmitField(label='Envoyez')
 
