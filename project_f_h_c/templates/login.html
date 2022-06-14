@@ -1,4 +1,6 @@
-{% extends 'layouts.html' %} {% block content_Login %}
+{% extends 'layouts.html' %}
+<!-- bsdfghj -->
+{% block content_Login %}
 
 <!-- <body class=" text-center"> -->
 
@@ -41,9 +43,15 @@
               placeholder="password"
               id="inputPassword4"
             /> -->
-            {%if form.password.errors%} {{form.password(class="form-control
-            form-control-md is-invalid", placeholder="password")}} {%for error
-            in form.password.errors%} <span>{{error}}</span> {%endfor%} {%else%}
+            {%if form.password.errors%}
+            <!-- asdffg -->
+            {{form.password(class="form-control form-control-md is-invalid",
+            placeholder="password")}}
+            <!-- asdffg -->
+            {%for error in form.password.errors%}
+            <span>{{error}}</span>
+            {%endfor%} {%else%}
+            <!-- asdffg -->
             {{form.password(class="form-control form-control-md password-input",
             placeholder="Mot de passe")}} {%endif%}
           </div>
@@ -58,7 +66,7 @@
           </button> -->
           <!-- <a href="{{url_for('accueilpage')}}"> -->
           {{form.submit(class="form-control btn btn-primary form-control-md",
-          placeholder="Envoyer")}}
+          placeholder="Connexion")}}
           <!-- </a> -->
           <br /><br /><br />
         </form>
