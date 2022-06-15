@@ -19,7 +19,7 @@ class RegistrationForm(FlaskForm):
     email = EmailField(validators=[DataRequired(), Email()])
 
     phone_number = TelField(
-        validators=[DataRequired(), Length(min=12, max=33)])
+        validators=[DataRequired(), Length(min=10, max=33)])
 
     adresse = StringField(validators=[DataRequired(), Length(min=3, max=55)])
 

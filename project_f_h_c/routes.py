@@ -43,13 +43,12 @@ def accountpage():
 def registerpage():
     form = RegistrationForm()
     if form.validate_on_submit():
-        membres = Membres(user_first_name=form.user_first_name.data, user_last_name=form.user_last_name.data, email=form.email.data, phone_number=form.phone_number.data,
-                          adresse=form.adresse.data, zip_code=form.zip_code.data, ville=form.ville.data, canton=form.canton.data, password=form.password.data)
-        db.session.add(membres)
+        membre = Membres(user_first_name=form.user_first_name.data, user_last_name=form.user_last_name.data, email=form.email.data, phone_number=form.phone_number.data,
+                         adresse=form.adresse.data, zip_code=form.zip_code.data, ville=form.ville.data, canton=form.canton.data, password=form.password.data)
+        db.session.add(membre)
         db.session.commit()
         flash(
             f'Compte a été créer avec succès pour {form.user_first_name.data}', category='success')
-        # print("Register page to login")
         return redirect(url_for('loginpage'))
 
     return render_template('register.html', title="Inscription", form=form)
@@ -58,16 +57,14 @@ def registerpage():
 @app.route('/login', methods=['POST', 'GET'])
 def loginpage():
     form = LoginForm()
-    # print("form Login !!!")
     if form.validate_on_submit():
-        print("sous submit")
-        if form.email.data == 'aaa@gmail.com' and form.password.data == '123456':
+        membre = Membres.query.filter_by(email=form.email.data).first()
+
+        if form.email.data == membre.email and form.password.data == membre.password:
             flash(
                 f'Connexion avec succès pour {form.email.data}', category='success')
-            # print("sous flasch")
             return redirect(url_for('accountpage'))
         else:
             flash(
                 f'Echec de la connexion pour {form.email.data}', category='danger')
-            # print("pas pu connecter")
     return render_template('login.html', title="Connexion", form=form)

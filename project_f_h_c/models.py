@@ -9,7 +9,7 @@ class Membres(db.Model):
     email = db.Column(db.String(133), unique=True, nullable=False)
     phone_number = db.Column(db.String(33), unique=True, nullable=False)
     adresse = db.Column(db.String(33), unique=True, nullable=False)
-    zip_code = db.Column(db.Integer(33), unique=True, nullable=False)
+    zip_code = db.Column(db.String(33), unique=True, nullable=False)
     ville = db.Column(db.String(33), unique=True, nullable=False)
     canton = db.Column(db.String(33), unique=True, nullable=False)
     idt_file = db.Column(db.String(133), nullable=False, default='default.jpg')
