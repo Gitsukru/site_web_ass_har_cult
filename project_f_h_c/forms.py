@@ -1,4 +1,4 @@
-from re import L
+# from re import L
 from flask_wtf import FlaskForm
 
 from wtforms import StringField, PasswordField, SubmitField, SelectField, MultipleFileField, TelField, IntegerField, BooleanField, EmailField, TextAreaField
