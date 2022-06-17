@@ -8,7 +8,7 @@ from flask_wtf import FlaskForm
 class RegistrationForm(FlaskForm):
 
     gender = SelectField(validators=[DataRequired()], choices=[
-                         (None, 'Genre'), ('Femme', 'Femme'), ('Home', 'Home')])
+                         (None, 'Genre'), ('Femme', 'Femme'), ('Homme', 'Homme')])
 
     user_first_name = StringField(
         validators=[DataRequired(), Length(min=3, max=33)])
@@ -44,10 +44,9 @@ class RegistrationForm(FlaskForm):
             min=6, max=35), EqualTo('password')])
 
     submit = SubmitField(label='Envoyez')
-
+ 
 
 class LoginForm(FlaskForm):
-
     email = EmailField(validators=[DataRequired(), Email()])
     password = PasswordField(validators=[
                              DataRequired(), Length(min=6, max=35)])

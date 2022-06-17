@@ -16,7 +16,7 @@ from sqlalchemy import String
 # db.create_all()
 
 sql_uri = 'sqlite:///project_f_h_c/database/db.sqlite'
-print("Hellooooo"+ sql_uri)
+
 sql_engine = create_engine(sql_uri)
 sql_meta = MetaData(sql_engine)
 
