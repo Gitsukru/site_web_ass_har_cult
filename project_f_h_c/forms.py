@@ -1,8 +1,8 @@
-# from re import L
-from flask_wtf import FlaskForm
+from re import L
 
 from wtforms import StringField, PasswordField, SubmitField, SelectField, MultipleFileField, TelField, IntegerField, BooleanField, EmailField, TextAreaField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, NumberRange, InputRequired
+from flask_wtf import FlaskForm
 
 
 class RegistrationForm(FlaskForm):
@@ -47,6 +47,7 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
+
     email = EmailField(validators=[DataRequired(), Email()])
     password = PasswordField(validators=[
                              DataRequired(), Length(min=6, max=35)])
