@@ -49,3 +49,7 @@ class Membres(db.Model):
         self.Read_and_accept = Read_and_accept
         self.password = password
         self.date_created = date_created
+
+    # def validate_unique_email(self, email):
+    #     if db.Model.email == email.data:
+    #         raise ValidationError('Cette email est déjà enregistrer.')

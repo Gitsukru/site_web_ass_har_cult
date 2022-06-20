@@ -7,6 +7,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/sukru/Ada_Flow/Projet_
 app.config['SQLALCHEMY_ECHO'] = True        
 db = SQLAlchemy(app)
 
+
+
 from project_f_h_c import routes
 def routes(app):
     return routes

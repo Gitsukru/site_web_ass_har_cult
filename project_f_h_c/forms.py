@@ -44,10 +44,28 @@ class RegistrationForm(FlaskForm):
             min=6, max=35), EqualTo('password')])
 
     submit = SubmitField(label='Envoyez')
- 
+
 
 class LoginForm(FlaskForm):
     email = EmailField(validators=[DataRequired(), Email()])
     password = PasswordField(validators=[
                              DataRequired(), Length(min=6, max=35)])
     submit = SubmitField(label='Connexion')
+
+
+class MailContactForm (FlaskForm):
+    user_first_name = StringField(
+        validators=[DataRequired(), Length(min=3, max=33)])
+
+    user_last_name = StringField(
+        validators=[DataRequired(), Length(min=3, max=33)])
+
+    email = EmailField(validators=[DataRequired(), Email()])
+
+    phone_number = TelField(
+        validators=[DataRequired(), Length(min=10, max=33)])
+
+    message_sent = TextAreaField(label='Message',
+                                 validators=[DataRequired(), Length(min=1, max=1000)])
+
+    submit = SubmitField(label='Envoyer')

@@ -11,22 +11,45 @@
         margin-bottom: 1rem;
     }
 
+    .navbar>.container-fluid img {
+        width: 100%;
+    }
+
+    .btn-nav-colas {
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .floatend {
         flex-direction: column;
     }
 
     .container-activite {
-        margin-top: 15%;
+        margin-top: 1%;
     }
 
     .container-membres {
         margin-top: 15%;
         padding-bottom: 20%;
     }
+
+    .contact-container,
+    .col-3 {
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 768px) {
 
+
+    .navbar,
+    .footercontainer .container,
+    .container-sm,
+    .container-fluid {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
 
     .navbar>.container-fluid {
         display: flex;
@@ -36,7 +59,77 @@
         justify-content: center;
     }
 
+    .navbar>.container-fluid img {
+        width: 100%;
+    }
+
     .floatend {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .layouts-section {
+        padding: 0 0.25rem;
+
+    }
+
+    .container-activite {
+        margin-top: 1%;
+        padding: 0.4rem !important;
+    }
+
+    .contact-container,
+    .col-3 {
+        width: 100% !important;
+    }
+
+    .activite-col-tex {
+        width: 60%;
+        padding: 0 0.25rem
+    }
+
+    .activite-col-tex p {
+        font-size: 0.8rem !important;
+    }
+
+    .container-activite .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-container {
+        padding-bottom: 2rem;
+        width: 37%;
+        padding-right: 0rem;
+    }
+
+    .navbar-fixed-left {
+        width: 37%;
+        padding: 0 0.1rem 0 0.1rem;
+    }
+
+    .nav .nav-pills {
+        padding: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .nav-pills .nav-link {
+        padding: 0.55rem 0.5rem;
+        display: flex;
+        margin: 0.1rem 0.2rem;
+        height: 0rem;
+        font-size: 0.8rem !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-pills .nav-link.active {
+        width: 70%;
+    }
+
+    .cardss {
+        margin-top: 1rem;
         flex-direction: column;
     }
 }
@@ -48,15 +141,8 @@
     .container-sm,
     .container-fluid {
         display: flex;
-        /* max-width: 506px; */
+        width: 100%;
         flex-wrap: wrap;
-        background-color: red;
-    }
-
-    .navbar-brand {
-        width: 60%;
-        padding-bottom: 2rem;
-        ;
     }
 
     .navbar>.container-fluid {
@@ -67,8 +153,78 @@
         justify-content: center;
     }
 
+    .navbar>.container-fluid img {
+        width: 100%;
+    }
+
     .floatend {
         flex-direction: column;
         text-align: center;
     }
+
+    .layouts-section {
+        padding: 0 0.25rem;
+
+    }
+
+    .container-activite {
+        margin-top: 3%;
+        padding: 0.4rem !important;
+    }
+
+    .contact-container,
+    .col-3 {
+        width: 100% !important;
+    }
+
+    .activite-col-tex {
+        width: 50%;
+        padding: 0 0.25rem
+    }
+
+    .activite-col-tex p {
+        font-size: 0.8rem !important;
+    }
+
+    .container-activite .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-container {
+        padding-bottom: 2rem;
+        width: 48%;
+        padding-right: 0rem;
+    }
+
+    .navbar-fixed-left {
+        width: 50%;
+        padding: 0 0.1rem 0 0.1rem;
+    }
+
+    .nav .nav-pills {
+        padding: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .nav-pills .nav-link {
+        padding: 0.55rem 0.5rem;
+        display: flex;
+        margin: 0.1rem 0.2rem;
+        height: 0rem;
+        font-size: 0.8rem !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-pills .nav-link.active {
+        width: 70%;
+    }
+
+    .cardss {
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+
 }

@@ -1,8 +1,86 @@
 {% extends 'layouts.html' %}
-
+<!-- bbbb -->
 {% block content_Contact %}
+<div class="container flex-direction-row contact-container">
+  <div class="d-flex  form-group cardss g-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body p-1">
+          <h5 class="card-title">Nous contacter</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body p-1">
+          <h5 class="card-title">
+            <span class="color-title a">association</span>
+            <span class="color-title b">harmonie</span>
+            <span class="color-title c">culturelle</span>
+          </h5>
+          <span class="card-text">Rue du Simplon 3</span><br>
+          <span class="card-text pl-3">1020 Renens</span>
+          <span class="card-text">harmonie.culturelle@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <form method="POST" action="" class="row g-3 form-area-modal">
+      {{form.hidden_tag()}}
+      <fieldset class="form-group row g-4">
+        <div class="form-group col-md-6">
+          {%if form.user_first_name.errors%}
+          {{form.user_first_name(class="form-control form-control-md
+          is-invalid", placeholder="Prénom")}} {%for error in
+          form.user_first_name.errors%}
+          <span>{{error}}</span> {%endfor%} {%else%}
+          {{form.user_first_name(class="form-control form-control-md",
+          placeholder="Prénom")}} {%endif%}
+        </div>
+        <div class="form-group col-md-6">
+          {%if form.user_last_name.errors%}
+          {{form.user_last_name(class="form-control form-control-md is-invalid",
+          placeholder="Nom")}} {%for error in form.user_last_name.errors%}
+          <span>{{error}}</span> {%endfor%} {%else%}
+          {{form.user_last_name(class="form-control form-control-md",
+          placeholder="Nom")}} {%endif%}
+        </div>
+        <div class="form-group col-md-6">
+          {%if form.email.errors%} {{form.email(class="form-control
+          form-control-md is-invalid", placeholder="email'@'cool.com")}} {%for
+          error in form.email.errors%} <span>{{error}}</span> {%endfor%}
+          {%else%} {{form.email(class="form-control form-control-md",
+          placeholder="email'@'cool.ch")}} {%endif%}
+        </div>
+        <div class="form-group col-md-6">
+          {%if form.phone_number.errors%}
+          {{form.phone_number(class="form-control form-control-md is-invalid",
+          placeholder="Numéro de Téléphone")}} {%for error in
+          form.phone_number.errors%}
+          <span>{{error}}</span>
+          {%endfor%} {%else%} {{form.phone_number(class="form-control
+          form-control-md", placeholder="Numéro de Téléphone")}} {%endif%}
+        </div>
+        <div class="form-floating">
+          <!-- <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea> -->
+          {%if form.message_sent.errors%}
+          {{form.message_sent(class="form-control form-control-md is-invalid",
+          placeholder="Message")}} {%for error in
+          form.message_sent.errors%}
+          <span>{{error}}</span>
+          {%endfor%} {%else%} {{form.message_sent(class="form-control
+          form-control-md", placeholder="Message")}} {%endif%}
+        </div>
 
-<h1>Contact page</h1>
 
+        <div class="form-group col-3">
+          {{form.submit(class="form-control btn btn-primary form-control-md",
+          placeholder="Envoyer")}}
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
 <script src="{{url_for('static', filename='../static/main.js')}}"></script>
 {% endblock content_Contact %}

@@ -1,20 +1,8 @@
 from project_f_h_c import app, db
-from flask import render_template, url_for, redirect, flash
-from project_f_h_c.forms import RegistrationForm, LoginForm
+from flask import render_template, url_for, redirect, flash, request
+from flask_mail import Mail, Message
+from project_f_h_c.forms import RegistrationForm, LoginForm, MailContactForm
 from project_f_h_c.models import Membres
-
-
-
-# from datetime import datetime
-
-# from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import MetaData
-# from sqlalchemy import create_engine
-# from sqlalchemy import Column
-# from sqlalchemy import Table
-# from sqlalchemy import Integer
-# from sqlalchemy import String
-# from datetime import datetime
 
 
 @app.route('/')
@@ -25,11 +13,6 @@ def accueilpage():
 @app.route('/activites')
 def activitespage():
     return render_template('activites.html', title="activites")
-
-
-@app.route('/contact')
-def contactpage():
-    return render_template('contact.html', title="Contact")
 
 
 @app.route('/cours')
@@ -72,6 +55,7 @@ def loginpage():
     form = LoginForm()
     if form.validate_on_submit():
         membre = Membres.query.filter_by(email=form.email.data).first()
+
         if form.email.data == membre.email and form.password.data == membre.password:
             flash(
                 f'Connexion avec succès pour {form.email.data}', category='success')
@@ -82,41 +66,51 @@ def loginpage():
     return render_template('login.html', title="Connexion", form=form)
 
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/sukru/Ada_Flow/Projet_Final_Harmonie_Culturelle/project_f_h_c/hrmcultdb.db'
-# db = SQLAlchemy(app)
-# db.init_app(app)
-# db.create_all()
-# app.config['SECRET_KEY'] = 'firstloginflask'
-# sql_uri = 'sqlite:///db.sqlite'
-# sql_engine = create_engine(sql_uri)
-# sql_meta = MetaData(sql_engine)
 
 
-# class Membres(db.ModeL):
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_first_name = db.Column(db.String(33), unique=True, nullable=False)
-#     user_last_name = db.Column(db.String(33), unique=True, nullable=False)
-#     email = db.Column(db.String(133), unique=True, nullable=False)
-#     phone_number = db.Column(db.String(33), unique=True, nullable=False)
-#     adresse = db.Column(db.String(33), unique=True, nullable=False)
-#     zip_code = db.Column(db.Integer(33), unique=True, nullable=False)
-#     ville = db.Column(db.String(33), unique=True, nullable=False)
-#     canton = db.Column(db.String(33), unique=True, nullable=False)
-#     idt_file = db.Column(db.String(133), nullable=False, default='default.jpg')
-#     Read_and_accept = db.Column(db.Boolean(True), nullable=False)
-#     password = db.Column(db.String(35), nullable=False)
-#     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-#     def __repr__(self, user_first_name, user_last_name, email, phone_number, adresse, zip_code, ville, canton, date_created, idt_file, Read_and_accept, password):
-#         self.user_first_name = user_first_name
-#         self.user_last_name = user_last_name
-#         self.email = email
-#         self.phone_number = phone_number
-#         self.adresse = adresse
-#         self.zip_code = zip_code
-#         self.ville = ville
-#         self.canton = canton
-#         self.idt_file = idt_file
-#         self.Read_and_accept = Read_and_accept
-#         self.password = password
-#         self.date_created = date_created
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'suisse1022@gmail.com'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_PASSWORD'] = 'ffyouafgwlovxvom'
+mail = Mail(app)
+
+
+def sendContactForm(result):
+    msg = Message('Hello', sender="tampontimbre@gmail.com",
+                  recipients=['suisse1022@gmail.com'])
+
+    msg.body = """
+    
+    Hello There
+
+    First Name: {}
+    Last Name: {}
+    Email: {}
+    Phone Number {}
+    Your message {}
+
+    Salutation
+    Sukru
+    """.format(result['user_first_name'], result['user_last_name'], result['email'], result['phone_number'], result['message_sent'], result['user_first_name'])
+
+    mail.send(msg)
+
+
+
+@app.route('/contact', methods=['POST', 'GET'])
+def contactpage():
+    form=MailContactForm()
+    if request.method == 'POST':
+        result = {}
+        result['user_first_name'] = request.form['user_first_name']
+        result['user_last_name'] = request.form['user_last_name']
+        result['email'] = request.form['email'].replace(' ', '')
+        result['phone_number'] = request.form['phone_number']
+        result['message_sent'] = request.form['message_sent']
+
+        sendContactForm(result)
+        return render_template('contact.html', title="Contact", form=form)
+    return render_template('contact.html', title="Contact", form=form)
