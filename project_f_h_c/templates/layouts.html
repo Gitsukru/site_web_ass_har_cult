@@ -9,23 +9,24 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='../static/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='../static/css/mediaquery.css')}}">
-
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='../static/image/favicon/logo_harmonie.ico')}}">
     <title>{{title}}</title>
+   
 </head>
 
 <body>
     <header>
-        <nav class="col-12">
+        <nav class="col-12 navbarlayouts bg-light">
             <!-- Navbar component pour chaque page html -->
-            <div class="col-12 navbarlayouts bg-light">
+            <!-- <div class="col-12 navbarlayouts bg-light"> -->
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <div class="navbarAbutton">
-                            <div class="col-6">
+                            <div class="col-6 w-50">
                                 <a class="navbar-brand col-6" href="{{url_for('accueilpage')}}">
                                     <img class="logoharmonie"
-                                        src="{{url_for('static', filename='../static/image/logo_harmonie_test.png')}}"
-                                        width="40%" alt="Logo harmonie">
+                                        src="{{url_for('static', filename='../static/image/logo/logo_harmonie_test.png')}}"
+                                        width="100%" alt="Logo harmonie">
                                     </img>
                                 </a>
                             </div>
@@ -69,16 +70,16 @@
                         </div>
                     </div>
                 </nav>
-            </div>
+            <!-- </div> -->
         </nav>
     </header>
 
     <section class="layouts-section">
-        <div class="container-fluid">
+        <div class="d-flex justify-content-center container-fluid">
             {%with messages=get_flashed_messages(with_categories=true)%}
                 {%if messages%}
                     {% for category, message in messages%}
-                    <div class="alert alert-{{category}}">{{message}}</div>
+                    <div class=" col-8 text-center alert alert-{{category}}">{{message}}</div>
                     {%endfor%}
                 {%endif%}
             {%endwith%}
@@ -124,7 +125,7 @@
         <div class="floatend">
             <p>Association Harmonie Culturelle</p>
             <div class="floatend">
-                <p>Rue du simplon 3</p>
+                <p>Rue du Simplon 3</p>
                 <p>1020 Renens</p>
                 <p>harmonie.culturelle@gmail.com</p>
             </div>

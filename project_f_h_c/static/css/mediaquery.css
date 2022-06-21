@@ -1,8 +1,10 @@
-@media (max-width: 992px) {
+/* 
+*                max-width: 992px
+*
+*/
 
-    body {
-        /* background-color: green; */
-    }
+
+@media (max-width: 992px) {
 
     .navbar>.container-fluid {
         text-align: center;
@@ -25,7 +27,8 @@
     }
 
     .container-activite {
-        margin-top: 1%;
+        margin-top: 2%;
+        max-width: max-content;
     }
 
     .container-membres {
@@ -33,11 +36,26 @@
         padding-bottom: 20%;
     }
 
+    .nav-container {
+
+        width: 32%;
+    }
+
     .contact-container,
     .col-3 {
         width: 100% !important;
     }
+
+    .register-container {
+        width: 100% !important;
+        padding-bottom: 2rem;
+    }
 }
+
+/* 
+*                max-width: 768px
+*
+*/
 
 @media (max-width: 768px) {
 
@@ -75,12 +93,14 @@
 
     .container-activite {
         margin-top: 1%;
-        padding: 0.4rem !important;
+        max-width: max-content;
+        padding: 0.9rem !important;
     }
 
     .contact-container,
     .col-3 {
         width: 100% !important;
+        margin-bottom: 2rem;
     }
 
     .activite-col-tex {
@@ -132,7 +152,16 @@
         margin-top: 1rem;
         flex-direction: column;
     }
+
+    .register-container {
+        width: 100%;
+    }
 }
+
+/* 
+*                max-width: 576px
+*
+*/
 
 @media (max-width: 576px) {
 
@@ -175,6 +204,7 @@
     .contact-container,
     .col-3 {
         width: 100% !important;
+        margin-bottom: 2rem;
     }
 
     .activite-col-tex {
@@ -208,7 +238,7 @@
     }
 
     .nav-pills .nav-link {
-        padding: 0.55rem 0.5rem;
+        padding: 0.85rem 0.5rem;
         display: flex;
         margin: 0.1rem 0.2rem;
         height: 0rem;
@@ -225,6 +255,10 @@
     .cardss {
         margin-top: 1rem;
         flex-direction: column;
+    }
+
+    .register-container {
+        width: 100%;
     }
 
 }
