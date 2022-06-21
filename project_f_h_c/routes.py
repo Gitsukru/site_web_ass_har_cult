@@ -57,6 +57,7 @@ def loginpage():
         membre = Membres.query.filter_by(email=form.email.data).first()
 
         if form.email.data == membre.email and form.password.data == membre.password:
+
             flash(
                 f'Connexion avec succès pour {form.email.data}', category='success')
             return redirect(url_for('accountpage'))
@@ -64,9 +65,6 @@ def loginpage():
             flash(
                 f'Echec de la connexion pour {form.email.data}', category='danger')
     return render_template('login.html', title="Connexion", form=form)
-
-
-
 
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -99,10 +97,9 @@ def sendContactForm(result):
     mail.send(msg)
 
 
-
 @app.route('/contact', methods=['POST', 'GET'])
 def contactpage():
-    form=MailContactForm()
+    form = MailContactForm()
     if request.method == 'POST':
         result = {}
         result['user_first_name'] = request.form['user_first_name']

@@ -1,74 +1,48 @@
 {% extends 'layouts.html' %}
 <!-- bsdfghj -->
 {% block content_Login %}
-
-<!-- <body class=" text-center"> -->
-
 <div class="container login-page-body">
   <div class="row">
     <div class="col">
       <main class="form-signin w-100 m-auto">
         <form class="form-login" method="POST" action="">
-          <img
-            class="mb-4"
-            src="../static/image/logo/logo_harmonie_test.png"
-            alt="Logo Harmonie C."
-            width="110"
-          />
-          <h3 class="h3 mb-3 fw-normal">Veuillez vous connecter</h3>
-          <div class="col-md mb-3">
-            <!-- <input
-              type="email"
-              class="form-control"
-              placeholder="email@cool.com"
-              id="inputEmail4"
-            /> -->
-            {%if form.email.errors%}
-            <!-- hkj -->
-            {{form.email(class="form-control form-control-md is-invalid",
-            placeholder="email'@'cool.com")}}
-            <!-- hkh -->
-            {%for error in form.email.errors%}
-            <span>{{error}}</span>
-            <!-- hhh -->
-            {%endfor%} {%else%}
-            <!-- hhhh -->
-            {{form.email(class="form-control form-control-md",
-            placeholder="email'@'cool.ch")}} {%endif%}
-          </div>
-          <div class="col-md mb-3">
-            <!-- <input
-              type="password"
-              class="form-control"
-              placeholder="password"
-              id="inputPassword4"
-            /> -->
-            {%if form.password.errors%}
-            <!-- asdffg -->
-            {{form.password(class="form-control form-control-md is-invalid",
-            placeholder="password")}}
-            <!-- asdffg -->
-            {%for error in form.password.errors%}
-            <span>{{error}}</span>
-            {%endfor%} {%else%}
-            <!-- asdffg -->
-            {{form.password(class="form-control form-control-md password-input",
-            placeholder="Mot de passe")}} {%endif%}
-          </div>
-
-          <div class="checkbox mb-3">
-            <!-- <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label> -->
-          </div>
-          <!-- <button class="w-100 btn btn-lg btn-primary p-1" type="submit">
-            Sign in
-          </button> -->
-          <!-- <a href="{{url_for('accueilpage')}}"> -->
-          {{form.submit(class="form-control btn btn-primary form-control-md",
-          placeholder="Connexion")}}
-          <!-- </a> -->
-          <br /><br /><br />
+          <img class="mb-5" src="../static/image/logo/logo_harmonie_test.png" alt="Logo Harmonie C." width="100"/>
+          {{form.hidden_tag()}}
+          <fieldset class="form-group row g-4">
+            <h3 class="h3 mb-3 fw-normal">Veuillez vous connecter</h3>
+            <div class="col-md mb-3">
+              {%if form.email.errors%}
+              <!-- hkj -->
+              {{form.email(class="form-control form-control-md is-invalid",
+              placeholder="email'@'cool.com")}}
+              <!-- hkh -->
+              {%for error in form.email.errors%}
+              <span>{{error}}</span>
+              <!-- hhh -->
+              {%endfor%} {%else%}
+              <!-- hhhh -->
+              {{form.email(class="form-control form-control-md",
+              placeholder="email'@'cool.ch")}}
+              {%endif%}
+            </div>
+            <div class="col-md mb-3">
+              {%if form.password.errors%}
+              <!-- asdffg -->
+              {{form.password(class="form-control form-control-md is-invalid",
+              placeholder="password")}}
+              <!-- asdffg -->
+              {%for error in form.password.errors%}
+              <span>{{error}}</span>
+              {%endfor%} {%else%}
+              <!-- asdffg -->
+              {{form.password(class="form-control form-control-md
+              password-input", placeholder="Mot de passe")}} {%endif%}
+            </div>
+            <div class="checkbox mb-3">
+            </div>
+            {{form.submit(class="form-control btn btn-primary form-control-md",
+            placeholder="Connexion")}}
+          </fieldset>
         </form>
       </main>
     </div>

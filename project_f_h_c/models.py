@@ -9,11 +9,7 @@ from sqlalchemy import Column
 from sqlalchemy import Table
 from sqlalchemy import Integer
 from sqlalchemy import String
-# app = Flask(__name__)
 
-
-# db.init_app(app)
-# db.create_all()
 
 sql_uri = 'sqlite:///project_f_h_c/database/db.sqlite'
 
@@ -22,7 +18,7 @@ sql_meta = MetaData(sql_engine)
 
 
 class Membres(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    membre_id = db.Column(db.Integer, primary_key=True)
     user_first_name = db.Column(db.String(33), unique=True, nullable=False)
     user_last_name = db.Column(db.String(33), unique=True, nullable=False)
     email = db.Column(db.String(133), unique=True, nullable=False)
@@ -36,7 +32,7 @@ class Membres(db.Model):
     password = db.Column(db.String(35), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def __repr__(self, user_first_name, user_last_name, email, phone_number, adresse, zip_code, ville, canton, date_created, idt_file, Read_and_accept, password):
+    def __repr__(self,user_first_name, user_last_name, email, phone_number, adresse, zip_code, ville, canton, date_created, idt_file, Read_and_accept, password):
         self.user_first_name = user_first_name
         self.user_last_name = user_last_name
         self.email = email
