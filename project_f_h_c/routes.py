@@ -54,19 +54,23 @@ def registerpage():
 def loginpage():
     form = LoginForm()
     if form.validate_on_submit():
-        membre = Membres.query.filter_by(email=form.email.data).first()
+        membre = Membres.query.filter_by().first()
 
         if form.email.data == membre.email and form.password.data == membre.password:
-
             flash(
                 f'Connexion avec succès pour {form.email.data}', category='success')
             return redirect(url_for('accountpage'))
+
         else:
             flash(
                 f'Echec de la connexion pour {form.email.data}', category='danger')
+        print("erreur", form.email.data)
+        # return redirect(url_for('loginpage'))
     return render_template('login.html', title="Connexion", form=form)
 
 
+
+#Form contact
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'suisse1022@gmail.com'
